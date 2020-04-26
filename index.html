@@ -15,7 +15,7 @@
             <img src="img/dog.png" width="30" height="30" class="d-inline-block align-top" alt="">
             PETBOX
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,21 +25,21 @@
                     <h4><a class="nav-link sair">Sair</a></h4>
                 </li>
             </ul>
-        </div>
+        </div> -->
     </nav>
     <div class="cards-opcoes">
         <div class="container">
             <div class="offset-2 col-8 login">
-                <form class="col-12">
+                <form class="col-12" name="loginForm">
                     <div>
                         <div class="row">
-                            <input class="col-6" placeholder="E-mail" type="email" formControlName="email" />
-                            <input class="col-6" placeholder="Senha" type="password" formControlName="senha" />
+                            <input class="col-6" placeholder="E-mail" type="email" id="loginEmail" formControlName="email" />
+                            <input class="col-6" placeholder="Senha" type="password" id="loginSenha" formControlName="senha" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 submitbutton">
-                            <button type="submit"><span>ENTRAR</span>
+                            <button type="button" id="getLogin"><span>ENTRAR</span>
                                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sign-in-alt"
                                     width="15px" class="svg-inline--fa fa-sign-in-alt fa-w-16" role="img"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -177,78 +177,77 @@
                                 <div class="modal-body">
 
 
-                                    <form class="col-12">
+                                    <form class="col-12" name="cadastroForm">
                                         <div>
                                             <div class="row">
-                                                <input class="col-4" placeholder="E-mail" type="email" required />
-                                                <input class="col-4" placeholder="Senha" type="password" required />
+                                                <input class="col-4" placeholder="E-mail" id="cadastroEmail" type="email" required />
+                                                <input class="col-4" placeholder="Senha" type="password"id="cadastroSenha" required />
                                                 <input class="col-4" placeholder="Confirme sua senha" type="password"
                                                     required />
                                             </div>
                                         </div>
                                         <div>
                                             <div class="row">
-                                                <input class="col-8" placeholder="Nome" type="text" />
-                                                <input class="col-4" placeholder="CPF" type="text" />
+                                                <input class="col-8" placeholder="Nome" id="cadastroNome" type="text" />
+                                                <input class="col-4" placeholder="CPF" id="cadastroCPF" type="text" />
                                             </div>
                                             <div class="row">
-                                                <select class="col-5">
+                                                <select class="col-5" id="cadastroAssinatura">
                                                     <option disabled>Assinatura</option>
                                                     <!-- value está entra colchetes para definir que o id é uma propriedade e não uma string -->
-                                                    <option>Normal</option>
-                                                    <option>Premium</option>
-                                                    <option>Master</option>
+                                                    <option value=1>Normal</option>
+                                                    <option value=2>Premium</option>
+                                                    <option value=3>Master</option>
                                                 </select>
-                                                <input class="col-4" placeholder="Telefone" type="text" />
-                                                <input class="col-3" placeholder="Data nascimento" type="date" />
+                                                <input id="cadastroTelefone" class="col-4" placeholder="Telefone" type="text" />
+                                                <input id="cadastroDataNascimento" class="col-3" placeholder="Data nascimento" type="date" />
                                             </div>
 
                                         </div>
                                         <div>
                                             <div class="row">
-                                                <input class="col-3" placeholder="CEP" type="text" />
-                                                <input class="col-3" placeholder="Tipo Logradouro" type="text" />
-                                                <input class="col-3" placeholder="Noma da rua" type="text" />
-                                                <input class="col-3" placeholder="Número" type="number" />
+                                                <input id="cadastroCEP" class="col-3" placeholder="CEP" type="text" />
+                                                <input id="cadastroTipoLogradouro" class="col-3" placeholder="Tipo Logradouro" type="text" />
+                                                <input id="cadastroNomeRua" class="col-3" placeholder="Noma da rua" type="text" />
+                                                <input id="cadastroNumero" class="col-3" placeholder="Número" type="number" />
                                             </div>
                                             <div class="row">
-                                                <input class="col-3" placeholder="Bairro" type="text" />
-                                                <input class="col-3" placeholder="Cidade" type="text" />
-                                                <input class="col-3" placeholder="Estado" type="text" />
+                                                <input id="cadastroBairro" class="col-3" placeholder="Bairro" type="text" />
+                                                <input id="cadastroCidade" class="col-3" placeholder="Cidade" type="text" />
+                                                <input id="cadastroEstado" class="col-3" placeholder="Estado" type="text" />
                                             </div>
                                         </div>
                                         <div>
                                             <div class="row">
-                                                <select class="col-3">
+                                                <select class="col-3" id="cadastroTipoAnimal">
                                                     <option disabled>Tipo Animal</option>
-                                                    <option>Pequeno</option>
-                                                    <option>Médio</option>
-                                                    <option>Grande</option>
+                                                    <option value=1>Cachorro</option>
+                                                    <option value=1>Gato</option>
+                                                    
                                                 </select>
-                                                <input class="col-3" placeholder="Nome do animal" type="text">
-                                                <select class="col-3">
+                                                <input id="cadastroNomeAnimal" class="col-3" placeholder="Nome do animal" type="text">
+                                                <select id="cadastroSexoAnimal" class="col-3">
                                                     <option disabled>Sexo Animal</option>
-                                                    <option type="number">Fêmea</option>
-                                                    <option type="number">Macho</option>
+                                                    <option value="F" type="number">Fêmea</option>
+                                                    <option value="M" type="number">Macho</option>
                                                 </select>
-                                                <select class="col-3">
+                                                <select id="cadastroPorteAnimal" class="col-3">
                                                     <option disabled>Porte Animal</option>
-                                                    <option type="number">Pequeno 8kg</option>
-                                                    <option type="number">Médio - 8kg a 15kg</option>
-                                                    <option type="number">Grande + 15kg</option>
+                                                    <option value=1 type="number">Pequeno 8kg</option>
+                                                    <option value=2 type="number">Médio - 8kg a 15kg</option>
+                                                    <option value=3 type="number">Grande + 15kg</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 submitbutton">
-                                                <button type="submit">Salvar :D</button>
+                                                <button type="submit" id="submitCadastro">Salvar :D</button>
                                             </div>
                                             <div class="col-12 submitbutton submitbutton--reset">
                                                 <button type="reset">Limpar campos</button>
                                             </div>
                                         </div>
                                     </form>
-
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">FECHAR
@@ -263,14 +262,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <button class="btn btn-primary" type="button" id="testePost">Teste Post</button>
-        <button class="btn btn-primary" type="button" id="testeGet">Teste Get</button>
-    </div>
-    <div class="row">
-        <div id="resultado"></div>
-    </div>
-
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

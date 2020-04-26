@@ -2,23 +2,60 @@
 /************************************** POST *********************/
 
 // Executa o evento quando clicar no botão, aqui pode ser o botão de salvar novo cadastro, por exemplo.
-$('#testePost').click(function () {
-
+$('#submitCadastro').click(function () {
+    alert("cadastro")
     //var server = "https://petbox-api.herokuapp.com/api/petbox/"
     var server = "http://localhost:8080/api/petbox/"
 
     //Exemplo de objeto JSON, a estrutura deve ser como a do postman. 
     //Pode copiar e colar o body do postman e colar aqui. Aquele grandão.
-    const pedido =
+    const dadosCadastro =
+
     {
-        "ID_ASSINANTE": 1 //aqui você vai pegar o valor do input >>>>>> $('#idInput').val();
+        "LOGIN":
+        {
+            "EMAIL_ASSINANTE": $('#cadastroEmail').val(),
+            "SENHA": $('#cadastroSenha').val()
+        },
+        "ASSINANTE":
+        {
+            "NOME": $('#cadastroNome').val(),
+            "CPF": $('#cadastroCPF').val(),
+            "ID_PLANO": $('#cadastroAssinatura').val(),
+            "TELEFONE_PRINCIPAL": $('#cadastroTelefone').val(),
+            "DT_NASCIMENTO": $('#cadastroDataNascimento').val(),
+        },
+        "ENDERECO":
+        {
+            "CEP": $('#cadastroCEP').val(),
+            "TIPO_LOGRADOURO": $('#cadastroTipoLogradouro').val(),
+            "LOGRADOURO": $('#cadastroLogradouro').val(),
+            "NUMERO": $('#cadastroNumero').val(),
+            "BAIRRO": $('#cadastroBairro').val(),
+            "CIDADE": $('#cadastroCidade').val(),
+            "ESTADO": $('#cadastroEstado').val(),
+        },
+        "ANIMAL":
+        {
+            "ID_TIPO_ANIMAL": $('#cadastroTipoAnimal').val(),
+            "NOME_ANIMAL": $('#cadastroNomeAnimal').val(),
+            "SEXO_ANIMAL": $('#cadastroSexoAnimal').val(),
+            "ID_PORTE": $('#cadastroPorteAnimal').val(),
+        }
     }
 
+
+    // {
+    //     "ID_ASSINANTE": 1 //aqui você vai pegar o valor do input >>>>>> $('#idInput').val();
+    // }
+
     // POST 
+
+    console.log(dadosCadastro);
     $.ajax({
-        url: server + "pedidos", //trocar pela URL
+        url: server + "novoCadastro", //trocar pela URL
         type: 'post', // tipo do método aqui
-        data: pedido, //json que vc colocou logo acima
+        data: dadosCadastro, //json que vc colocou logo acima
         beforeSend: function () {
             $("#resultado").html("ENVIANDO...");
         }
@@ -33,45 +70,31 @@ $('#testePost').click(function () {
 });
 
 
-/***************************GET********************************** */
-$('#testeGet').click(async function () {
 
+
+
+/***************************GET********************************** */
+$('#getLogin').click(async function () {
+
+    var email = document.getElementById('loginEmail');
+    var senha = document.getElementById('loginSenha');
+
+    console.log(email.value + "---" + senha.value)
     var server = "http://localhost:8080/api/petbox/"
 
-    await $.getJSON(server + "pedidos", async function (data) {  //data = resultado do get
-
-        var html = '<div>' +
-            '<h3 style="margin-left:1%">Pedidos</h3>' +
-            '<hr>' +
-            '</div>' //Monta cabeçalho de título, pode ficar direto na página se quiser
-
-        for (let index = 0; index < data.length; index++) { //pega todas os dados recebidos pelo get e monta table
-
-            //pega todos os dados e coloca no grid
-            html += `<tr>` +
-                `<th scope="row">${data[index].ID_PEDIDO}</th>` +
-                `<td>${await data[index].ID_ASSINANTE}</td>` +
-                `<td>${await StatusEntrega(data[index].FLG_ENTREGUE)}</td>` +
-                `<td>${await FormataData(data[index].DATA_PEDIDO)}</td>` +
-                `</tr>`
+    await $.getJSON(server + "logins", async function (data) {  //data = resultado do get
+        console.log(data)
+        //pega todas os dados recebidos pelo get e monta table
+        for (let index = 0; index < data.length; index++) {
+            if (data[index].EMAIL_ASSINANTE == email.value && data[index].SENHA == senha.value) {
+                // console.log(data[index].ID_LOGIN)
+                // console.log("loginOK" + data[index].EMAIL_ASSINANTE + data[index].SENHA + data[index].ID_LOGIN)
+                sessionStorage.setItem("idLOGIN", data[index].ID_LOGIN);
+                // getPedidosByID(data[index].ID_LOGIN);
+                window.location.href = "pedido.html";
+            }
         }
-
-        //pega todos os dados e coloca na div
-        $("#resultado").html('<table class="table table-hover">' +
-            ' <thead>' +
-            '<tr>' +
-            '<th scope="col">ID PEDIDO</th>' +
-            '<th scope="col">NOME DO ASSINANTE</th>' +
-            '<th scope="col">STATUS ENTREGA</th>' +
-            '<th scope="col">DATA DO PEDIDO</th>' +
-            '</tr>' +
-            '</thead>' +
-            '<tbody>' +
-            html +
-
-            '</tbody>' +
-            '</table>'
-        )
+        
     })
 });
 
@@ -93,17 +116,15 @@ async function StatusEntrega(entregue) {
     else return "ENTREGA PENDENTE"
 }
 
-async function GetNomeAssinante(idAssinante)
-{
+async function GetNomeAssinante(idAssinante) {
     var server = "http://localhost:8081/api/petbox/"
-     $.getJSON(server+'/assinantes/'+idAssinante, async function (data) {
+    $.getJSON(server + '/assinantes/' + idAssinante, async function (data) {
         return data.NOME;
     });
 }
 
-async function GetPlano(idPLano)
-{
-    if(idPLano == 1) return "Básico"
+async function GetPlano(idPLano) {
+    if (idPLano == 1) return "Básico"
     else if (idPLano == 2) return "Clássico"
     else if (idPLano == 3) return "Master"
 }

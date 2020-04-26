@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,148 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="petbox.css">
 </head>
+
 <body>
     <nav class="navbar navbar-light shadow p-3 mb-5" style="background: #56baed;">
         <a class="navbar-brand" href="marketing.html">
             <img src="img/dog.png" width="30" height="30" class="d-inline-block align-top" alt="">
             PETBOX
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        <h4><a href="index.html" class="nav-link sair">Sair
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sign-out-alt" width="20px"
+                    class="svg-inline--fa fa-sign-out-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <path fill="tomato"
+                        d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z">
+                    </path>
+                </svg>
+            </a>
+        </h4>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" style="text-align: center;">
                 <li class="nav-item">
-                    <h4><a class="nav-link sair">Sair</a></h4>
+                    
                 </li>
             </ul>
-        </div>
+        </div> -->
     </nav>
+
+    <div class="container">
+        <h1 id="nomeASSINANTE"></h1>
+        <button id="editaCadastro" type="button" data-toggle="modal" data-target="#caixaMaster">
+            EDITAR CADASTRO
+        </button>
+        <div CLASS="statusCadastro">
+            <span>Status do cadastro:(clique para alterar)</span>
+            <button class="ativo" id="statusDoCadastro"></button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="caixaMaster" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <form class="col-12" name="cadastroForm">
+                            <div>
+                                <div class="row">
+                                    <input class="col-4" placeholder="E-mail" id="cadastroEmail" type="email"
+                                        required />
+                                    <input class="col-4" placeholder="Senha" type="password" id="cadastroSenha"
+                                        required />
+                                    <input class="col-4" placeholder="Confirme sua senha" id="cadastroConfirmacaoSenha"
+                                        type="password" required />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <input class="col-8" placeholder="Nome" id="cadastroNome" type="text" />
+                                    <input class="col-4" placeholder="CPF" id="cadastroCPF" type="text" />
+                                </div>
+                                <div class="row">
+                                    <select class="col-5" id="cadastroAssinatura">
+                                        <option disabled>Assinatura</option>
+                                        <!-- value está entra colchetes para definir que o id é uma propriedade e não uma string -->
+                                        <option value=1>Normal</option>
+                                        <option value=2>Premium</option>
+                                        <option value=3>Master</option>
+                                    </select>
+                                    <input id="cadastroTelefone" class="col-4" placeholder="Telefone" type="text" />
+                                    <input id="cadastroDataNascimento" class="col-3" placeholder="Data nascimento"
+                                        type="date" required />
+                                </div>
+
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <input id="cadastroCEP" class="col-3" placeholder="CEP" type="text" />
+                                    <input id="cadastroTipoLogradouro" class="col-3" placeholder="Tipo Logradouro"
+                                        type="text" />
+                                    <input id="cadastroNomeRua" class="col-3" placeholder="Noma da rua" type="text" />
+                                    <input id="cadastroNumero" class="col-3" placeholder="Número" type="number" />
+                                </div>
+                                <div class="row">
+                                    <input id="cadastroBairro" class="col-3" placeholder="Bairro" type="text" />
+                                    <input id="cadastroCidade" class="col-3" placeholder="Cidade" type="text" />
+                                    <input id="cadastroEstado" class="col-3" placeholder="Estado" type="text" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <select class="col-3" id="cadastroTipoAnimal">
+                                        <option disabled>Tipo Animal</option>
+                                        <option value=1>Cachorro</option>
+                                        <option value=1>Gato</option>
+
+                                    </select>
+                                    <input id="cadastroNomeAnimal" class="col-3" placeholder="Nome do animal"
+                                        type="text">
+                                    <select id="cadastroSexoAnimal" class="col-3">
+                                        <option disabled>Sexo Animal</option>
+                                        <option value="F" type="number">Fêmea</option>
+                                        <option value="M" type="number">Macho</option>
+                                    </select>
+                                    <select id="cadastroPorteAnimal" class="col-3">
+                                        <option disabled>Porte Animal</option>
+                                        <option value=1 type="number">Pequeno 8kg</option>
+                                        <option value=2 type="number">Médio - 8kg a 15kg</option>
+                                        <option value=3 type="number">Grande + 15kg</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 submitbutton">
+                                    <button type="submit" id="submitEditaCadastro">Salvar :D</button>
+                                </div>
+                                <div class="col-12 submitbutton submitbutton--reset">
+                                    <button type="reset">Limpar campos</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">FECHAR
+                            :(</button>
+                        <!-- <button type="button" class="btn btn-primary">SALVAR</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12" id="listaPedidos">
+
+            </div>
+        </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="petbox.js"></script>
+    <script src="pedidos.js"></script>
 </body>
+
 </html>

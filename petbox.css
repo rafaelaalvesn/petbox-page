@@ -1,10 +1,35 @@
 .cards-opcoes {
-    height: 100vh;
+    height: 80vh;
     background-image: url("../../assets/imagens/bg-cards.png");
     background-position-x: right;
     background-position-y: bottom;
     background-repeat: no-repeat;
     position: relative;
+}
+.p-3,
+.mb-5 {
+    height: 10vh;
+    margin-bottom: 15px !important;
+    justify-content: center;
+}
+
+nav > h4 {
+    position: absolute;
+    right: 15%;
+}
+nav > h4 > a {
+    color: tomato;
+    transition: 0.3s;
+}
+/* nav > h4 > a:hover {
+    color: white;
+    fill: white;
+} */
+
+nav > h4 > a:hover,
+nav > h4 > a > svg > path:hover {
+    color: white;
+    fill: white;
 }
 
 .cards-opcoes .logotipo {
@@ -27,9 +52,9 @@
     height: 250px;
 }
 .cards-opcoes .login {
-    margin-bottom: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     box-shadow: 0px 0px 10px gray;
     border-radius: 18px;
 }
@@ -38,7 +63,7 @@
     color: #c94a58;
     text-align: center;
     text-transform: uppercase;
-    padding-bottom: 50px;
+    padding-bottom: 15px;
 }
 
 .cards {
@@ -91,12 +116,12 @@
     margin: 0px;
 }
 
-.cards .botao {
+.botao {
     display: flex;
     justify-content: center;
     padding-top: 15px;
 }
-.cards .home {
+.home {
     border: 1px solid #a8cf38;
     font-size: 16px;
     color: #a8cf38;
@@ -109,9 +134,10 @@
     align-items: center;
     transition: 0.3s;
 }
-.home > hover {
+.home:hover {
     background-color: #a8cf38;
     color: white;
+    font-size: 24px;
 }
 
 .texto-cadastro {
@@ -196,27 +222,14 @@ input[type="number"] {
     cursor: pointer;
     border-radius: 5px;
 }
-.submitbutton > button > hover {
+.submitbutton > button:hover {
     transform: rotate3d(360);
     font-size: 18px;
 }
-.submitbutton > button > hover > svg {
+.submitbutton > button :hover > svg {
     margin-left: 15px;
     padding-bottom: 3px;
 }
-
-/* &--reset {
-        padding-top: 15px;
-        button {
-            border: 1px solid #339de9;
-            background-color: transparent;
-            color: #339de9;
-            &:hover {
-                font-size: 16px;
-            }
-        }
-    } */
-/* } */
 
 select {
     margin: 0px 0px 20px 0px;
@@ -224,4 +237,47 @@ select {
     border-radius: 10px;
     background-color: transparent;
     color: #339de9;
+}
+
+#editaCadastro {
+    position: absolute;
+    right: calc(15% - 20px);
+    border: none;
+    background-color: transparent;
+    border: 1px solid #339de9;
+    transition: 0.3s;
+    z-index: 99;
+}
+#editaCadastro:hover {
+    background-color: tomato;
+    border: 1px solid tomato;
+}
+
+.statusCadastro {
+    position: absolute;
+    right: 30%;
+    z-index: 99;
+}
+.ativo {
+    color: green;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.inativo {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+#statusDoCadastro {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+#nomeASSINANTE {
+    height: 60px;
+    color: tomato;
+    font-weight: bold;
+    font-size: 36px;
 }
