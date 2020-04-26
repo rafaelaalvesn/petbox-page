@@ -1,0 +1,227 @@
+.cards-opcoes {
+    height: 100vh;
+    background-image: url("../../assets/imagens/bg-cards.png");
+    background-position-x: right;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.cards-opcoes .logotipo {
+    position: absolute;
+    left: 15%;
+    top: 5%;
+}
+.cards-opcoes > h1 {
+    font-size: 20px;
+    text-align: center;
+    color: #a8cf38;
+    font-weight: bold;
+    text-shadow: 0px 0px 15px;
+}
+
+.cards-opcoes .img-bg {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    height: 250px;
+}
+.cards-opcoes .login {
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 0px 0px 10px gray;
+    border-radius: 18px;
+}
+.cards-opcoes .mensagem {
+    font-size: 24px;
+    color: #c94a58;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 50px;
+}
+
+.cards {
+    padding: 15px;
+    height: 400px;
+}
+.cards .inner {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #339de9;
+    border-radius: 18px;
+    padding: 15px;
+    box-shadow: 0px 0px 10px #339de9;
+}
+.cards .tamanho-animal {
+    font-size: 18px;
+    color: #a8cf38;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 15px;
+}
+.cards .imagens {
+    border-radius: 20px;
+    width: 100%;
+    height: 181px;
+
+    overflow: hidden;
+    position: relative;
+}
+.imagens > img {
+    height: 100%;
+    width: 100%;
+}
+.cards .static {
+    position: absolute;
+    background: white;
+}
+.imagens .static:hover {
+    opacity: 0 !important;
+}
+
+.cards .lista {
+    padding-top: 15px;
+}
+.lista .ul {
+    list-style: none;
+    padding: 0px;
+    text-align: center;
+    color: #339de9;
+    margin: 0px;
+}
+
+.cards .botao {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+}
+.cards .home {
+    border: 1px solid #a8cf38;
+    font-size: 16px;
+    color: #a8cf38;
+    background-color: transparent;
+    width: 100%;
+    border-radius: 20px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+.home > hover {
+    background-color: #a8cf38;
+    color: white;
+}
+
+.texto-cadastro {
+    text-align: center;
+    font-size: 18px;
+    color: #c94a58;
+    margin: 0px;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #c94a58;
+    color: #c94a58;
+    transition: 0.3s;
+    font-size: 12px;
+    cursor: pointer;
+}
+.btn-secondary > hover {
+    background-color: rgba(201, 74, 88, 0.5);
+}
+
+.modal-dialog {
+    max-width: 850px;
+}
+
+.modal-header {
+    justify-content: center;
+}
+
+app-login {
+    width: 100%;
+}
+
+.login-titulo {
+    text-align: center;
+    font-size: 24px;
+    color: #c94a58;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.row > input {
+    margin: 0px 0px 10px 0px;
+    border: 1px solid #339de9;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #339de9;
+}
+.row > input:focus {
+    background-color: rgba(51, 157, 233, 0.5);
+    color: white;
+}
+
+.row > input > placeholder {
+    color: #339de9;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.submitbutton {
+    padding-right: 0px;
+}
+.submitbutton > button {
+    float: right;
+    background-color: #a8cf38;
+    color: white;
+    width: 140px;
+    height: 30px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.submitbutton > button > hover {
+    transform: rotate3d(360);
+    font-size: 18px;
+}
+.submitbutton > button > hover > svg {
+    margin-left: 15px;
+    padding-bottom: 3px;
+}
+
+/* &--reset {
+        padding-top: 15px;
+        button {
+            border: 1px solid #339de9;
+            background-color: transparent;
+            color: #339de9;
+            &:hover {
+                font-size: 16px;
+            }
+        }
+    } */
+/* } */
+
+select {
+    margin: 0px 0px 20px 0px;
+    border: 1px solid #339de9;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #339de9;
+}

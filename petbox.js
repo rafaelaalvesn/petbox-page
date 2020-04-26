@@ -95,7 +95,7 @@ async function StatusEntrega(entregue) {
 
 async function GetNomeAssinante(idAssinante)
 {
-    var server = "http://localhost:8080/api/petbox/"
+    var server = "http://localhost:8081/api/petbox/"
      $.getJSON(server+'/assinantes/'+idAssinante, async function (data) {
         return data.NOME;
     });

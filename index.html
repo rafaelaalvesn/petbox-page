@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="petbox.css">
 </head>
+
 <body>
     <nav class="navbar navbar-light shadow p-3 mb-5" style="background: #56baed;">
         <a class="navbar-brand" href="marketing.html">
@@ -25,9 +27,245 @@
             </ul>
         </div>
     </nav>
+    <div class="cards-opcoes">
+        <div class="container">
+            <div class="offset-2 col-8 login">
+                <form class="col-12">
+                    <div>
+                        <div class="row">
+                            <input class="col-6" placeholder="E-mail" type="email" formControlName="email" />
+                            <input class="col-6" placeholder="Senha" type="password" formControlName="senha" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 submitbutton">
+                            <button type="submit"><span>ENTRAR</span>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sign-in-alt"
+                                    width="15px" class="svg-inline--fa fa-sign-in-alt fa-w-16" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path
+                                        d="M416 448h-84c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h84c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32h-84c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h84c53 0 96 43 96 96v192c0 53-43 96-96 96zm-47-201L201 79c-15-15-41-4.5-41 17v96H24c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h136v96c0 21.5 26 32 41 17l168-168c9.3-9.4 9.3-24.6 0-34z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 mensagem">
+                <span>ou confira abaixo nossas opções de boxes</span>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 cards">
+                    <div class="inner">
+                        <div class="tamanho-animal">
+                            <span>
+                                caixa normal
+                            </span>
+                        </div>
+                        <div class="imagens">
+                            <img class="static" src="./img/staticdog.png">
+                            <img class="active" src="./img/movingdog.gif">
+                        </div>
+                        <div class="lista">
+                            <ul>
+                                <li>Variedade de itens</li>
+                                <li>Patês</li>
+                                <li>Brinquedos</li>
+                                <li>Roupinhas</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 cards">
+                    <div class="inner">
+                        <div class="tamanho-animal">
+                            <span>
+                                caixa premium
+                            </span>
+                        </div>
+                        <div class="imagens">
+                            <img class="static" src="./img/staticat.png">
+                            <img class="active" src="./img/movingcat.gif">
+                        </div>
+                        <div class="lista">
+                            <ul>
+                                <li>Variedade de itens</li>
+                                <li>Patês</li>
+                                <li>Brinquedos</li>
+                                <li>Roupinhas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12 cards">
+                    <div class="inner">
+                        <div class="tamanho-animal">
+                            <span>
+                                caixa master
+                            </span>
+                        </div>
+                        <div class="imagens">
+                            <img class="static" src="./img/staticmaster.png">
+                            <img class="active" src="./img/movingmaster.gif">
+                        </div>
+                        <div class="lista">
+                            <ul>
+                                <li>Variedade de itens</li>
+                                <li>Patês</li>
+                                <li>Brinquedos</li>
+                                <li>Roupinhas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 offset-4">
+                <div class="botao">
+                    <!-- Button trigger modal -->
+                    <button class="home" type="button" data-toggle="modal" data-target="#caixaMaster">
+                        ASSINAR
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="caixaMaster" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+
+                                    <!-- login -->
+
+                                    <!-- <div class="col-12 login-titulo">
+                                        Faça seu login
+                                    </div> -->
+
+                                    <form class="col-12">
+                                        <div>
+                                            <div class="row">
+                                                <input class="col-6" placeholder="E-mail" type="email"
+                                                    formControlName="email" />
+                                                <input class="col-6" placeholder="Senha" type="password"
+                                                    formControlName="senha" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 submitbutton">
+                                                <button type="submit"><span>ENTRAR</span>
+                                                    <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                        data-icon="sign-in-alt" width="15px"
+                                                        class="svg-inline--fa fa-sign-in-alt fa-w-16" role="img"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                        <path
+                                                            d="M416 448h-84c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h84c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32h-84c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h84c53 0 96 43 96 96v192c0 53-43 96-96 96zm-47-201L201 79c-15-15-41-4.5-41 17v96H24c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h136v96c0 21.5 26 32 41 17l168-168c9.3-9.4 9.3-24.6 0-34z">
+                                                        </path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <!-- login -->
+
+
+                                </div>
+                                <div class="col-12 texto-cadastro">
+                                    <span class="">Ou preencha os seus dados para realizar o seu
+                                        cadastro
+                                    </span> </div>
+                                <div class="modal-body">
+
+
+                                    <form class="col-12">
+                                        <div>
+                                            <div class="row">
+                                                <input class="col-4" placeholder="E-mail" type="email" required />
+                                                <input class="col-4" placeholder="Senha" type="password" required />
+                                                <input class="col-4" placeholder="Confirme sua senha" type="password"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="row">
+                                                <input class="col-8" placeholder="Nome" type="text" />
+                                                <input class="col-4" placeholder="CPF" type="text" />
+                                            </div>
+                                            <div class="row">
+                                                <select class="col-5">
+                                                    <option disabled>Assinatura</option>
+                                                    <!-- value está entra colchetes para definir que o id é uma propriedade e não uma string -->
+                                                    <option>Normal</option>
+                                                    <option>Premium</option>
+                                                    <option>Master</option>
+                                                </select>
+                                                <input class="col-4" placeholder="Telefone" type="text" />
+                                                <input class="col-3" placeholder="Data nascimento" type="date" />
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <div class="row">
+                                                <input class="col-3" placeholder="CEP" type="text" />
+                                                <input class="col-3" placeholder="Tipo Logradouro" type="text" />
+                                                <input class="col-3" placeholder="Noma da rua" type="text" />
+                                                <input class="col-3" placeholder="Número" type="number" />
+                                            </div>
+                                            <div class="row">
+                                                <input class="col-3" placeholder="Bairro" type="text" />
+                                                <input class="col-3" placeholder="Cidade" type="text" />
+                                                <input class="col-3" placeholder="Estado" type="text" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="row">
+                                                <select class="col-3">
+                                                    <option disabled>Tipo Animal</option>
+                                                    <option>Pequeno</option>
+                                                    <option>Médio</option>
+                                                    <option>Grande</option>
+                                                </select>
+                                                <input class="col-3" placeholder="Nome do animal" type="text">
+                                                <select class="col-3">
+                                                    <option disabled>Sexo Animal</option>
+                                                    <option type="number">Fêmea</option>
+                                                    <option type="number">Macho</option>
+                                                </select>
+                                                <select class="col-3">
+                                                    <option disabled>Porte Animal</option>
+                                                    <option type="number">Pequeno 8kg</option>
+                                                    <option type="number">Médio - 8kg a 15kg</option>
+                                                    <option type="number">Grande + 15kg</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 submitbutton">
+                                                <button type="submit">Salvar :D</button>
+                                            </div>
+                                            <div class="col-12 submitbutton submitbutton--reset">
+                                                <button type="reset">Limpar campos</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">FECHAR
+                                        :(</button>
+                                    <!-- <button type="button" class="btn btn-primary">SALVAR</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <button class="btn btn-primary" type="button" id="testePost">Teste Post</button>
-        <button class="btn btn-primary" type="button" id="testeGet">Teste Get</button>     
+        <button class="btn btn-primary" type="button" id="testeGet">Teste Get</button>
     </div>
     <div class="row">
         <div id="resultado"></div>
@@ -38,4 +276,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="petbox.js"></script>
 </body>
+
 </html>
