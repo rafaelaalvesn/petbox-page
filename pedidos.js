@@ -23,7 +23,6 @@ $(document).ready(function () {
                 //pega todos os dados e coloca no grid
                 html += `<tr>` +
                     `<th scope="row">${data[index].ID_PEDIDO}</th>` +
-                    `<td>${await data[index].ID_ASSINANTE}</td>` +
                     `<td>${await StatusEntrega(data[index].FLG_ENTREGUE)}</td>` +
                     `<td>${await FormataData(data[index].DATA_PEDIDO)}</td>` +
                     `</tr>`
@@ -34,7 +33,6 @@ $(document).ready(function () {
                 ' <thead>' +
                 '<tr>' +
                 '<th scope="col">ID PEDIDO</th>' +
-                '<th scope="col">NOME DO ASSINANTE</th>' +
                 '<th scope="col">STATUS ENTREGA</th>' +
                 '<th scope="col">DATA DO PEDIDO</th>' +
                 '</tr>' +
