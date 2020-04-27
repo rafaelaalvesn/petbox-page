@@ -3,7 +3,6 @@
 
 // Executa o evento quando clicar no botão, aqui pode ser o botão de salvar novo cadastro, por exemplo.
 $('#submitCadastro').click(function () {
-    alert("cadastro")
   var server = "https://petbox-api.herokuapp.com/api/petbox/"
    // var server = "http://localhost:8080/api/petbox/"
 
@@ -62,7 +61,7 @@ $('#submitCadastro').click(function () {
     })
         .done(function (msg) {
             // $("#resultado").html(msg); //mensagem de sucesso, pode ser um alert pro usuário.
-            alert("Deu certo");
+            alert("Cadastro realizado com sucesso.");
         })
         .fail(function (jqXHR, textStatus, msg) {
             alert(msg); //mensagem de sucesso, pode ser um alert pro usuário.
