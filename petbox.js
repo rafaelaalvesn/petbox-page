@@ -4,8 +4,8 @@
 // Executa o evento quando clicar no botão, aqui pode ser o botão de salvar novo cadastro, por exemplo.
 $('#submitCadastro').click(function () {
     alert("cadastro")
-    //var server = "https://petbox-api.herokuapp.com/api/petbox/"
-    var server = "http://localhost:8080/api/petbox/"
+  var server = "https://petbox-api.herokuapp.com/api/petbox/"
+   // var server = "http://localhost:8080/api/petbox/"
 
     //Exemplo de objeto JSON, a estrutura deve ser como a do postman. 
     //Pode copiar e colar o body do postman e colar aqui. Aquele grandão.
@@ -80,7 +80,8 @@ $('#getLogin').click(async function () {
     var senha = document.getElementById('loginSenha');
 
     console.log(email.value + "---" + senha.value)
-    var server = "http://localhost:8080/api/petbox/"
+    //var server = "http://localhost:8080/api/petbox/"
+    var server = "https://petbox-api.herokuapp.com/api/petbox/"
 
     await $.getJSON(server + "logins", async function (data) {  //data = resultado do get
         console.log(data)
@@ -117,7 +118,9 @@ async function StatusEntrega(entregue) {
 }
 
 async function GetNomeAssinante(idAssinante) {
-    var server = "http://localhost:8081/api/petbox/"
+  //  var server = "http://localhost:8081/api/petbox/"
+    var server = "https://petbox-api.herokuapp.com/api/petbox/"
+
     $.getJSON(server + '/assinantes/' + idAssinante, async function (data) {
         return data.NOME;
     });
