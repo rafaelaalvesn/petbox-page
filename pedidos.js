@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     let idlogin = sessionStorage.getItem("idLOGIN");
-    //var server = "http://localhost:8080/api/petbox/"
+   // var server = "http://localhost:8080/api/petbox/"
     var server = "https://petbox-api.herokuapp.com/api/petbox/"
 
     getPedidosByID(idlogin);
@@ -9,8 +9,8 @@ $(document).ready(function () {
     /***************************GET********************************** */
     async function getPedidosByID(id) {
 
-        //var server = "http://localhost:8080/api/petbox/"
-        var server = "https://petbox-api.herokuapp.com/api/petbox/"
+       // var server = "http://localhost:8080/api/petbox/"
+         var server = "https://petbox-api.herokuapp.com/api/petbox/"
 
         await $.getJSON(server + "pedidosAssinante/" + id, async function (data) {  //data = resultado do get
             console.log(data)
@@ -141,7 +141,7 @@ $(document).ready(function () {
     $('#submitEditaCadastro').click(function () {
         // alert("recadastro")
         var server = "https://petbox-api.herokuapp.com/api/petbox/"
-       // var server = "http://localhost:8080/api/petbox/"
+        //var server = "http://localhost:8080/api/petbox/"
 
         //Exemplo de objeto JSON, a estrutura deve ser como a do postman. 
         //Pode copiar e colar o body do postman e colar aqui. Aquele grandão.
@@ -181,7 +181,6 @@ $(document).ready(function () {
         }
 
         console.log(dadosCadastro);
-        alert("aa");
         $.ajax({
             url: server + "editarCadastro/" + idlogin, //trocar pela URL
             type: 'put', // tipo do método aqui
