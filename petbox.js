@@ -28,7 +28,7 @@ $('#submitCadastro').click(function () {
         {
             "CEP": $('#cadastroCEP').val(),
             "TIPO_LOGRADOURO": $('#cadastroTipoLogradouro').val(),
-            "LOGRADOURO": $('#cadastroLogradouro').val(),
+            "LOGRADOURO": $('#cadastroNomeRua').val(),
             "NUMERO": $('#cadastroNumero').val(),
             "BAIRRO": $('#cadastroBairro').val(),
             "CIDADE": $('#cadastroCidade').val(),
