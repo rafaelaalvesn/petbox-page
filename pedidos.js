@@ -1,24 +1,23 @@
 $(document).ready(function () {
 
+
     let idlogin = sessionStorage.getItem("idLOGIN");
 
     getPedidosByID(idlogin);
     GetAssinante(idlogin);
-    /***************************GET********************************** */
+
     async function getPedidosByID(id) {
 
         var server = sessionStorage.getItem("server");
-
 
         await $.getJSON(server + "pedidosAssinante/" + id, async function (data) {  //data = resultado do get
             console.log(data)
             var html = '<div>' +
                 '<h3>Pedidos</h3>' +
                 '<hr>' +
-                '</div>' //Monta cabeçalho de título, pode ficar direto na página se quiser
+                '</div>'
 
-            for (let index = 0; index < data.length; index++) { //pega todas os dados recebidos pelo get e monta table
-                //pega todos os dados e coloca no grid
+            for (let index = 0; index < data.length; index++) {
                 html += `<tr>` +
                     `<th scope="row">${data[index].ID_PEDIDO}</th>` +
                     `<td>${await StatusEntrega(data[index].FLG_ENTREGUE)}</td>` +
@@ -26,7 +25,6 @@ $(document).ready(function () {
                     `</tr>`
             }
 
-            //pega todos os dados e coloca na div
             $("#listaPedidos").html('<table class="table table-hover">' +
                 ' <thead>' +
                 '<tr>' +
@@ -42,6 +40,7 @@ $(document).ready(function () {
             )
         })
     }
+    
     $('#editaCadastro').click(function () {
         GetAssinante(idlogin);
         GetEndereco(idlogin);
@@ -50,6 +49,8 @@ $(document).ready(function () {
     })
 
     async function GetLogin(idlogin) {
+
+        var server = sessionStorage.getItem("server");
 
         $.getJSON(server + 'logins', async function (data) {
             console.log("logins", idlogin)
@@ -61,16 +62,13 @@ $(document).ready(function () {
                     $("#cadastroConfirmacaoSenha").val(data[index].SENHA);
                 }
             }
-            // $("#cadastroNome").val(data.NOME);
-            // $("#cadastroCPF").val(data.CPF);
-            // $("#cadastroTelefone").val(data.TELEFONE_PRINCIPAL);
-            // $("#cadastroDataNascimento").val(data.DT_NASCIMENTO);
-            //   $("#cadastroNome").val(data.NOME);
         });
     }
 
 
     async function GetAssinante(idlogin) {
+
+        var server = sessionStorage.getItem("server");
 
         $.getJSON(server + 'assinantes/' + idlogin, async function (data) {
             console.log(data.CADASTRO_ATIVO)
@@ -91,12 +89,15 @@ $(document).ready(function () {
             $("#cadastroNome").val(data.NOME);
             $("#cadastroCPF").val(data.CPF);
             $("#cadastroTelefone").val(data.TELEFONE_PRINCIPAL);
-            $("#cadastroDataNascimento").val(data.DT_NASCIMENTO);
+            $("#cadastroDataNascimento").val(data.DT_NASCIMENTO.substring(0,10));
             $("#nomeASSINANTE").html("Olá, " + data.NOME);
         });
     }
 
     async function GetAnimal(idlogin) {
+
+        var server = sessionStorage.getItem("server");
+
         $.getJSON(server + 'animaisAssinante/' + idlogin, async function (data) {
             console.log(data)
             data.forEach(element => {
@@ -118,6 +119,9 @@ $(document).ready(function () {
 
 
     async function GetEndereco(idlogin) {
+
+        var server = sessionStorage.getItem("server");
+
         $.getJSON(server + 'enderecosAssinante/' + idlogin, async function (data) {
             console.log(data)
             data.forEach(element => {
@@ -135,15 +139,10 @@ $(document).ready(function () {
 
 
 
-    // Executa o evento quando clicar no botão, aqui pode ser o botão de salvar novo cadastro, por exemplo.
     $('#submitEditaCadastro').click(function () {
-        // alert("recadastro")
-        
+
         var server = sessionStorage.getItem("server");
 
-
-        //Exemplo de objeto JSON, a estrutura deve ser como a do postman. 
-        //Pode copiar e colar o body do postman e colar aqui. Aquele grandão.
         const dadosCadastro =
 
         {
@@ -158,7 +157,7 @@ $(document).ready(function () {
                 "CPF": $('#cadastroCPF').val(),
                 "ID_PLANO": $('#cadastroAssinatura').val(),
                 "TELEFONE_PRINCIPAL": $('#cadastroTelefone').val(),
-                "DT_NASCIMENTO": $('#cadastroDataNascimento').val(),
+                "DT_NASCIMENTO": $('#cadastroDataNascimento').val()
             },
             "ENDERECO":
             {
@@ -181,38 +180,36 @@ $(document).ready(function () {
 
         console.log(dadosCadastro);
         $.ajax({
-            url: server + "editarCadastro/" + idlogin, //trocar pela URL
-            type: 'put', // tipo do método aqui
-            data: dadosCadastro, //json que vc colocou logo acima
+            url: server + "editarCadastro/" + idlogin,
+            type: 'put', 
+            data: dadosCadastro,
             beforeSend: function () {
-                $("#resultado").html("ENVIANDO...");
             }
         })
             .done(function (msg) {
-                // $("#resultado").html(msg); //mensagem de sucesso, pode ser um alert pro usuário.
                 alert("Deu certo");
             })
             .fail(function (jqXHR, textStatus, msg) {
-                alert(msg); //mensagem de sucesso, pode ser um alert pro usuário.
+                alert(msg);
             });
     });
 
 
     $('#statusDoCadastro').click(function () {
 
+        var server = sessionStorage.getItem("server");
+
         $.ajax({
-            url: server + "desativarCadastro/", //trocar pela URL
-            type: 'post', // tipo do método aqui
+            url: server + "desativarCadastro/",
+            type: 'post',
             data:
             {
                 "ID_ASSINANTE": idlogin
             }
-            //json que vc colocou logo acima
         });
         GetAssinante(idlogin);
 
     });
 
 });
-
 

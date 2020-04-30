@@ -3,19 +3,14 @@ $(document).ready(function () {
 sessionStorage.setItem("server", "https://petbox-api.herokuapp.com/api/petbox/");
 // localStorage.setItem("server", "http://localhost:8080/api/petbox/");
 
-    
 })
 
 
-/************************************** POST *********************/
 
-// Executa o evento quando clicar no botão, aqui pode ser o botão de salvar novo cadastro, por exemplo.
 $('#submitCadastro').click(function () {
 
    var server = sessionStorage.getItem("server");
 
-    //Exemplo de objeto JSON, a estrutura deve ser como a do postman. 
-    //Pode copiar e colar o body do postman e colar aqui. Aquele grandão.
     const dadosCadastro =
 
     {
@@ -51,58 +46,45 @@ $('#submitCadastro').click(function () {
         }
     }
 
-
-    // {
-    //     "ID_ASSINANTE": 1 //aqui você vai pegar o valor do input >>>>>> $('#idInput').val();
-    // }
-
     // POST 
 
     console.log(dadosCadastro);
     $.ajax({
-        url: server + "novoCadastro", //trocar pela URL
-        type: 'post', // tipo do método aqui
-        data: dadosCadastro, //json que vc colocou logo acima
+        url: server + "novoCadastro", 
+        type: 'post', 
+        data: dadosCadastro, 
         beforeSend: function () {
             $("#resultado").html("ENVIANDO...");
         }
     })
         .done(function (msg) {
-            // $("#resultado").html(msg); //mensagem de sucesso, pode ser um alert pro usuário.
             alert("Cadastro realizado com sucesso.");
         })
         .fail(function (jqXHR, textStatus, msg) {
-            alert(msg); //mensagem de sucesso, pode ser um alert pro usuário.
+            alert(msg); 
         });
 });
 
 
-
-
-
-/***************************GET********************************** */
 $('#getLogin').click(async function () {
 
     var email = document.getElementById('loginEmail');
     var senha = document.getElementById('loginSenha');
-
-    console.log(email.value + "---" + senha.value)
-
+    var loginEncontrado;
     var server = sessionStorage.getItem("server");
 
-    await $.getJSON(server + "logins", async function (data) {  //data = resultado do get
+    await $.getJSON(server + "logins", async function (data) { 
         console.log(data)
-        //pega todas os dados recebidos pelo get e monta table
         for (let index = 0; index < data.length; index++) {
-            if (data[index].EMAIL_ASSINANTE == email.value && data[index].SENHA == senha.value) {
-                // console.log(data[index].ID_LOGIN)
-                // console.log("loginOK" + data[index].EMAIL_ASSINANTE + data[index].SENHA + data[index].ID_LOGIN)
+            if (data[index].EMAIL_ASSINANTE == email.value && data[index].SENHA == senha.value) {  
+                loginEncontrado = true;                            
                 sessionStorage.setItem("idLOGIN", data[index].ID_LOGIN);
-                // getPedidosByID(data[index].ID_LOGIN);
                 window.location.href = "pedido.html";
-            }
+            }        
         }
-        
+        if(!loginEncontrado){
+            alert("Usuário ou senha incorretos.")
+        }       
     })
 });
 
@@ -116,7 +98,6 @@ async function FormataData(data) {
     var mesF = data.split("-")[1];
     var anoF = data.split("-")[0];
     return diaF + "/" + mesF + "/" + anoF
-
 }
 
 async function StatusEntrega(entregue) {
