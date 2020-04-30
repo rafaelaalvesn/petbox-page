@@ -1,10 +1,18 @@
+$(document).ready(function () {
+
+sessionStorage.setItem("server", "https://petbox-api.herokuapp.com/api/petbox/");
+// localStorage.setItem("server", "http://localhost:8080/api/petbox/");
+
+    
+})
+
 
 /************************************** POST *********************/
 
 // Executa o evento quando clicar no botão, aqui pode ser o botão de salvar novo cadastro, por exemplo.
 $('#submitCadastro').click(function () {
-  var server = "https://petbox-api.herokuapp.com/api/petbox/"
-   //var server = "http://localhost:8080/api/petbox/"
+
+   var server = sessionStorage.getItem("server");
 
     //Exemplo de objeto JSON, a estrutura deve ser como a do postman. 
     //Pode copiar e colar o body do postman e colar aqui. Aquele grandão.
@@ -79,8 +87,8 @@ $('#getLogin').click(async function () {
     var senha = document.getElementById('loginSenha');
 
     console.log(email.value + "---" + senha.value)
-    //var server = "http://localhost:8080/api/petbox/"
-    var server = "https://petbox-api.herokuapp.com/api/petbox/"
+
+    var server = sessionStorage.getItem("server");
 
     await $.getJSON(server + "logins", async function (data) {  //data = resultado do get
         console.log(data)
@@ -117,8 +125,8 @@ async function StatusEntrega(entregue) {
 }
 
 async function GetNomeAssinante(idAssinante) {
-    //var server = "http://localhost:8080/api/petbox/"
-    var server = "https://petbox-api.herokuapp.com/api/petbox/"
+
+    var server = sessionStorage.getItem("server");
 
     $.getJSON(server + '/assinantes/' + idAssinante, async function (data) {
         return data.NOME;
