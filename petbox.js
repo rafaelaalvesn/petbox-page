@@ -1,15 +1,31 @@
 $(document).ready(function () {
 
-sessionStorage.setItem("server", "https://petbox-api.herokuapp.com/api/petbox/");
-// localStorage.setItem("server", "http://localhost:8080/api/petbox/");
+   sessionStorage.setItem("server", "https://petbox-api.herokuapp.com/api/petbox/");
+  //sessionStorage.setItem("server", "http://localhost:8080/api/petbox/");
+
+    //  $("#cadastroEmail").val('xx@gmail.com');
+    //  $("#cadastroSenha").val('123');
+    //  $("#cadastroConfirmacaoSenha").val('123');
+
+    // $("#cadastroCEP").val('31910030');
+    // $("#cadastroTipoLogradouro").val('Rua');
+    // $("#cadastroNomeRua").val('HollyWood Street');
+    // $("#cadastroNumero").val('600');
+    // $("#cadastroBairro").val('Holly');
+    // $("#cadastroCidade").val('Wood');
+    // $("#cadastroEstado").val('MG');
+
+    // $("#cadastroCPF").val('13219649602');
+    // $("#cadastroTelefone").val('993964466');
+    // $("#cadastroNomeAnimal").val('Paty');
 
 })
 
 
 
-$('#submitCadastro').click(function () {
+$('#submitCadastro').click(async function () {
 
-   var server = sessionStorage.getItem("server");
+    var server = sessionStorage.getItem("server");
 
     const dadosCadastro =
 
@@ -48,21 +64,20 @@ $('#submitCadastro').click(function () {
 
     // POST 
 
-    console.log(dadosCadastro);
-    $.ajax({
-        url: server + "novoCadastro", 
-        type: 'post', 
-        data: dadosCadastro, 
-        beforeSend: function () {
-            $("#resultado").html("ENVIANDO...");
-        }
+     $.ajax({
+        url: server + "novoCadastro",
+        type: 'post',
+        data: dadosCadastro,
     })
         .done(function (msg) {
-            alert("Cadastro realizado com sucesso.");
+            alert("Cadastro realizado com sucesso") + msg;
         })
         .fail(function (jqXHR, textStatus, msg) {
-            alert(msg); 
+            alert(msg);
         });
+
+alert("Feito");
+
 });
 
 
@@ -70,24 +85,32 @@ $('#getLogin').click(async function () {
 
     var email = document.getElementById('loginEmail');
     var senha = document.getElementById('loginSenha');
+    Logar(email, senha);
+});
+
+
+async function Logar(email, senha) {
+
     var loginEncontrado;
     var server = sessionStorage.getItem("server");
 
-    await $.getJSON(server + "logins", async function (data) { 
+    await $.getJSON(server + "logins", async function (data) {
         console.log(data)
         for (let index = 0; index < data.length; index++) {
-            if (data[index].EMAIL_ASSINANTE == email.value && data[index].SENHA == senha.value) {  
-                loginEncontrado = true;                            
+            if (data[index].EMAIL_ASSINANTE == email.value && data[index].SENHA == senha.value) {
+                loginEncontrado = true;
                 sessionStorage.setItem("idLOGIN", data[index].ID_LOGIN);
                 window.location.href = "pedido.html";
-            }        
+            }
         }
-        if(!loginEncontrado){
+        if (!loginEncontrado) {
             alert("Usuário ou senha incorretos.")
-        }       
+        }
     })
-});
 
+
+
+}
 
 
 /*************TRATATAMENTO DOS DADOS DO JSON *******************/
