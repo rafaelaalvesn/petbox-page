@@ -225,7 +225,9 @@ $(document).ready(function () {
         dataType: "json",
         url: `https://api.airtable.com/v0/applWk6IGtiasBZJs/Pedidos/?filterByFormula={Número}=${idPedido}`,
           success: function(data) {
-            resolve(data.records[0].fields.Status.toUpperCase()) 
+              if(data.length > 0){
+                resolve(data.records[0].fields.Status.toUpperCase()) 
+              }          
           },
           error: function(error) {
             reject(error)
