@@ -227,7 +227,7 @@ $(document).ready(function () {
           success: function(data) {
               if(data.length > 0){
                 resolve(data.records[0].fields.Status.toUpperCase()) 
-              }          
+              }   else resolve("STATUS DESCONHECIDO")       
           },
           error: function(error) {
             reject(error)
