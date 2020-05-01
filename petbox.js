@@ -100,10 +100,6 @@ async function FormataData(data) {
     return diaF + "/" + mesF + "/" + anoF
 }
 
-async function StatusEntrega(entregue) {
-    if (entregue) return "ENTREGUE"
-    else return "ENTREGA PENDENTE"
-}
 
 async function GetNomeAssinante(idAssinante) {
 

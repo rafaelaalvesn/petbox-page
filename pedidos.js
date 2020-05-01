@@ -20,7 +20,7 @@ $(document).ready(function () {
             for (let index = 0; index < data.length; index++) {
                 html += `<tr>` +
                     `<th scope="row">${data[index].ID_PEDIDO}</th>` +
-                    `<td>${await StatusEntrega(data[index].FLG_ENTREGUE)}</td>` +
+                    `<td>${await StatusEntrega(data[index].ID_PEDIDO)}</td>` +
                     `<td>${await FormataData(data[index].DATA_PEDIDO)}</td>` +
                     `</tr>`
             }
@@ -213,3 +213,24 @@ $(document).ready(function () {
 
 });
 
+
+ async function StatusEntrega(idPedido) {
+      
+    return new Promise((resolve, reject) => {
+        $.ajax({
+        beforeSend: function(request) {
+           request.setRequestHeader("Authorization", 'Bearer key5vsWx2WI9FaZPC');
+        },
+        type: 'GET',
+        dataType: "json",
+        url: `https://api.airtable.com/v0/applWk6IGtiasBZJs/Pedidos/?filterByFormula={Número}=${idPedido}`,
+          success: function(data) {
+            resolve(data.records[0].fields.Status.toUpperCase()) 
+          },
+          error: function(error) {
+            reject(error)
+          },
+        })
+      })
+
+}
